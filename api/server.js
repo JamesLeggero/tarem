@@ -26,7 +26,7 @@ app.get('/', (req, res)=>{
     res.send('SCAREM')
 })
 
-// app.use("/api/", require("./controllers/artPieces.js"))
+app.use("/api/", require("./controllers/readings.js"))
 
 app.listen(PORT, ()=>{
     console.log('TAREM', PORT)
