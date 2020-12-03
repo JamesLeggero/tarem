@@ -23,7 +23,7 @@ import wheel from '../images/wheel.png'
 import world from '../images/world.png'
 
 export default function Draw(props) {
-    const tarot = [
+    const tarotPool = [
         fool,
         magician,
         priestess,
@@ -49,9 +49,31 @@ export default function Draw(props) {
     ]
 
     return (
+        <>
         <form onSubmit={props.handleSubmit}>
-            <input type='text' className='name' placeholder='name' />
+            <input type='text' className='name' placeholder='Name' />
             <input type='submit' className='btn' value='New Draw' />
         </form>
+        <div className='drawContainer'>
+        {
+            props.deck.map((card, i) => {
+                return (
+                    <div className='cardContainer' key={i}>
+                        {
+                            card.reversed === false ?
+                            <img className='drawnCard'  src={tarotPool[card.rank]} alt={`${tarotPool[card.rank]}`} /> :
+                            <img className='drawnCard' style={{
+                                transform: 'rotate(0.5turn)'
+                            }} src={tarotPool[card.rank]} alt={`${tarotPool[card.rank]}`} />
+                        }
+                        <h4>{card.meaning}</h4>
+                    </div>
+                )
+
+            })
+        }
+
+        </div>
+        </>
     )
 }
