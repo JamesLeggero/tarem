@@ -1,3 +1,5 @@
+
+
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -30,6 +32,10 @@ import tower from './images/tower.png'
 import wheel from './images/wheel.png'
 import world from './images/world.png'
 
+const StatsD = require('hot-shots')
+const dogstatsd = new StatsD()
+
+dogstatsd.increment('page-views')
 
 
 const tarot = require('tarot-deck')
