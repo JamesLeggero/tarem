@@ -51,7 +51,7 @@ export default function Draw(props) {
     return (
         <>
         <form onSubmit={props.handleSubmit}>
-            <input type='text' className='name' placeholder='Name' />
+            <input type='text' className='name' name='name' placeholder='Name' />
             <input type='submit' className='btn' value='New Draw' />
         </form>
         <div className='drawContainer'>

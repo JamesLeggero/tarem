@@ -1,17 +1,40 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 
 import Draw from './components/Draw'
+import AllReadings from './components/AllReadings'
 
 const tarot = require('tarot-deck')
 
 function App() { 
 
   const [deck, setDeck] = useState([])
+  const [allReadings, setAllReadings] = useState([])
 
-  const handleSubmit = e => {
+  useEffect (()=>{
+    (async ()=>{
+      try {
+        const response = await axios.get('http://localhost:3001/api')
+        console.log(response.data)
+        setAllReadings(response.data)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+  }, [deck])
+
+  // useEffect(()=>{
+
+  // }, [allReadings.length])
+
+  // const handleChange = e => {
+
+  // }
+
+  const handleSubmit = async e => {
     e.preventDefault()
     let drawnDeck = []
     const drawSet = new Set([])
@@ -38,7 +61,18 @@ function App() {
       
     }
     setDeck(sanitizedDeck)
-    console.log(sanitizedDeck)
+    // console.log(sanitizedDeck)
+    // console.log(e.target.name.value)
+    try {
+      await axios.post('http://localhost:3001/api', {
+        name:
+          e.target.name.value === '' ? 'Unknown' : e.target.name.value,
+        sanitizedDeck: sanitizedDeck
+      })
+    } catch (error) {
+      console.error(error)
+    }
+    e.target.name.value = ''
   }
 
 
@@ -46,6 +80,7 @@ function App() {
     <div className="App">
       <h1>Tarem Scarem</h1>
       <Draw handleSubmit={handleSubmit} deck={deck}/>
+      <AllReadings allReadings={allReadings} />
       
     </div>
   );
