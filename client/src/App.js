@@ -14,17 +14,18 @@ function App() {
   const [deck, setDeck] = useState([])
   const [allReadings, setAllReadings] = useState([])
 
-  useEffect (()=>{
+   useEffect (()=>{
     (async ()=>{
       try {
         const response = await axios.get('http://localhost:3001/api')
         console.log(response.data)
-        setAllReadings(response.data)
+        await setAllReadings(response.data)
       } catch (error) {
         console.error(error)
       }
     })()
   }, [deck])
+
 
   // useEffect(()=>{
 
