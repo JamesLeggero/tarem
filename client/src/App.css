@@ -16,8 +16,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.fullContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  
+}
+
+.allReadingsAppLevel {
+  width: 300px;
+}
+
 .drawContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
@@ -28,8 +40,27 @@ body {
 }
 .drawnCard {
   height: 250px;
-  /* background-color: ghostwhite; */
   filter: invert(75%);
-  /* animation: cardFadeIn 10s;
-  animation-fill-mode: forwards; */
+}
+
+.allReadingsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.smallDrawnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.smallCardContainer {
+  width: 50px;
+  margin: 5px
+}
+.smallCard {
+  height: 65px;
+  filter: invert(75%);
 }
