@@ -15,6 +15,9 @@ const dd_options = {
   
 const connect_datadog = require('connect-datadog')(dd_options);
 
+var StatsD = require('hot-shots');
+var dogstatsd = new StatsD();
+
 
 
 mongoose.connect(MONGODB_URI, {
@@ -32,6 +35,8 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res)=>{
+    // dogstatsd.increment('page.views')
+    //test line
     res.send('SCAREM')
 })
 

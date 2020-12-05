@@ -8,6 +8,7 @@ var dogstatsd = new StatsD();
 
 //Index route
 router.get('/', (req, res) => {
+    dogstatsd.increment('node.page.views', ['method:GET', 'route:/']);
     Reading.find({}, (error, allReadings) => {
         error ? res.status(404).json(error) : res.status(200).json(allReadings); 
     });
@@ -42,7 +43,7 @@ router.put('/:id', (req, res) => {
 //Create
 router.post("/", (req,res)=>{
     
-    dogstatsd.increment('page.views')
+    // dogstatsd.increment('node.page.views')
     Reading.create(req.body, (error, createdReading)=>{
         error ? res.status(404).json(error) : 
         res.status(200).json(createdReading)
