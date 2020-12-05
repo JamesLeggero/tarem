@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Reading = require("../models/reading");
 
+
+var StatsD = require('hot-shots');
+var dogstatsd = new StatsD();
+
 //Index route
 router.get('/', (req, res) => {
     Reading.find({}, (error, allReadings) => {
@@ -37,11 +41,8 @@ router.put('/:id', (req, res) => {
 
 //Create
 router.post("/", (req,res)=>{
-    // let newData = {
-    //     culture = req.body.records.culture,
-    //     title = req.body.records.title 
-    // }
-    console.log(req.body);
+    
+    dogstatsd.increment('page.views')
     Reading.create(req.body, (error, createdReading)=>{
         error ? res.status(404).json(error) : 
         res.status(200).json(createdReading)

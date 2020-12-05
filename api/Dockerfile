@@ -1,6 +1,6 @@
 FROM node:10.16-alpine
 
-# ARG NODE_ENV=development
+ARG NODE_ENV=development
 
 # Create App Directory
 RUN mkdir -p /usr/src/app

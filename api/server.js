@@ -8,6 +8,13 @@ const cors = require('cors')
 const PORT = process.env.PORT || 3001
 const MONGODB_URI = process.env.MONGODB_URI
 
+const dd_options = {
+    'response_code':true,
+    'tags': ['env:staging']
+  }
+  
+const connect_datadog = require('connect-datadog')(dd_options);
+
 
 
 mongoose.connect(MONGODB_URI, {
@@ -28,6 +35,7 @@ app.get('/', (req, res)=>{
     res.send('SCAREM')
 })
 
+app.use(connect_datadog)
 app.use("/api/", require("./controllers/readings.js"))
 
 app.listen(PORT, ()=>{
