@@ -29,6 +29,7 @@ export default function Draw(props) {
     return (
         <>
         <div className='drawContainer'>
+        <h1>Tarem Scarem</h1>
         <form onSubmit={props.handleSubmit}>
             <input type='text' className='name' name='name' placeholder='Name' />
             <input type='submit' className='btn' value='New Draw' />

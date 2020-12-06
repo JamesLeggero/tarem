@@ -131,12 +131,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tarem Scarem</h1>
-      <div className='fullContainer'>
-      <Draw handleSubmit={handleSubmit} deck={deck} tarotPool={tarotPool}/>
-      <AllReadings className='allReadingsAppLevel' allReadings={allReadings} tarotPool={tarotPool}/>
+      <div className='appContainer'>
+        <div className='fullContainer'>
+          <Draw handleSubmit={handleSubmit} deck={deck} tarotPool={tarotPool} />
+        </div>
+        <AllReadings className='allReadingsAppLevel' allReadings={allReadings} tarotPool={tarotPool} />
+
       </div>
-      
     </div>
   );
 }

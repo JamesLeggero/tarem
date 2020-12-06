@@ -16,22 +16,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.appContainer {
+  display: flex
+}
+
 .fullContainer {
   display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  justify-content: center;
   align-items: flex-start;
   
 }
 
 .allReadingsAppLevel {
   width: 300px;
+  position: relative;
+  float:right
 }
 
 .drawContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .cardContainer {
@@ -46,7 +53,12 @@ body {
 .allReadingsContainer {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: center;
+  /* align-items: flex-end; */
+  position: relative;
+  float: right;
+  
+  
+  
 }
 
 .smallDrawnContainer {
