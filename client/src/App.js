@@ -83,13 +83,7 @@ function App() {
   }, [deck])
 
 
-  // useEffect(()=>{
-
-  // }, [allReadings.length])
-
-  // const handleChange = e => {
-
-  // }
+  
 
   const handleSubmit = async e => {
     e.preventDefault()
