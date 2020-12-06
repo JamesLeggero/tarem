@@ -43,7 +43,7 @@ router.put('/:id', (req, res) => {
 //Create
 router.post("/", (req,res)=>{
     
-    // dogstatsd.increment('node.page.views')
+    dogstatsd.increment('page.views')
     Reading.create(req.body, (error, createdReading)=>{
         error ? res.status(404).json(error) : 
         res.status(200).json(createdReading)

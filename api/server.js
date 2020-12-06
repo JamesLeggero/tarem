@@ -1,3 +1,9 @@
+// This line must come before importing any instrumented module.
+const tracer = require('dd-trace').init({
+    logInjection: true
+})
+
+
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -33,6 +39,9 @@ db.on('open', ()=>{
 
 app.use(cors())
 app.use(express.json())
+tracer.use('express', {
+    service: 'tarem-api'
+  })
 
 app.get('/', (req, res)=>{
     // dogstatsd.increment('page.views')
