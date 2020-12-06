@@ -23,30 +23,7 @@ import React from 'react'
 // import world from '../images/world.png'
 
 export default function Draw(props) {
-    // const tarotPool = [
-    //     fool,
-    //     magician,
-    //     priestess,
-    //     empress,
-    //     emperor,
-    //     hierophant,
-    //     lovers,
-    //     chariot,
-    //     strength,
-    //     hermit,
-    //     wheel,
-    //     justice,
-    //     hanged,
-    //     death,
-    //     temperance,
-    //     devil,
-    //     tower,
-    //     star,
-    //     moon,
-    //     sun,
-    //     judgement,
-    //     world
-    // ]
+    
 
     const tarotPool = props.tarotPool
     return (
